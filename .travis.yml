@@ -15,7 +15,7 @@ install:
   - npm ci
 
 env:
-  - NODE_ENV=test
+  - DB_URL = postgres://jmjkecsrkmejwd:37672200b9680714bff3b4978e1cb990975841ea22b91ce82180b1cd28b9a270@ec2-107-22-224-154.compute-1.amazonaws.com:5432/d1p7db7vh98cgv
 
 before_script:
   - psql -c 'CREATE DATABASE listactividades;' -U postgres

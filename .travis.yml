@@ -17,7 +17,7 @@ install:
 before_script:
   - psql -c 'CREATE DATABASE listactividades;' -U postgres
   - adonis migration:run
-  - cd .env.testing .env
+  - cp .env.testing .env
 
 script: 
   -adonis test

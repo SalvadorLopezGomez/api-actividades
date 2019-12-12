@@ -9,10 +9,19 @@ const Hash = use('Hash')
 
 class UserController {
 /**Login*/
-  async login ({ request, auth }) {
+  async login ({ request, response, auth }) {
     const {email, password} = request.all();
     const token = await auth.attempt(email, password)
-    return token;
+    const user = await User.findByOrFail('email', email)
+    if(user){
+      var users = {
+        id: user.id,
+        name: user.name,
+        type: token.type,
+        token: token.token
+      }
+      return response.json({users});
+    }
   }
 /**Get All Users*/
   async index ({ }) {

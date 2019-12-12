@@ -13,7 +13,17 @@ const test_user = {
   phone: '9612130003'
 }
 
+const test_register = {
+  name: 'user1',
+  email: 'user1@gmail.com', 
+  password: 'password',
+  phone: '9611967592'
+}
+
 test('[Fail Register] Error de Registro con datos duplicados', async ({ client }) => {
+
+  await User.create(test_register)
+
   const response = await client.post('/api/users/register').send({
     name: 'user1',
     email: 'user1@gmail.com', 

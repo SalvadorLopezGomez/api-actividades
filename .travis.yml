@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+ - 10.16.3
+
+cache: npm
+
+script: adonis test
+
+provider: heroku
+api_key:
+  secure: a908fc05-83b5-48dd-ab64-96cbe5eaf14a

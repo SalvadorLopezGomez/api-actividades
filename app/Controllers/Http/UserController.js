@@ -13,7 +13,7 @@ class UserController {
     const {email, password} = request.all();
     const token = await auth.attempt(email, password)
     const user = await User.findByOrFail('email', email)
-    if(user){
+    if( user ){
       var users = {
         id: user.id,
         name: user.name,

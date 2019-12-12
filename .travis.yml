@@ -18,6 +18,9 @@ before_install:
 install: 
   - npm ci
 
+before_script:
+  - psql -c 'CREATE DATABASE listactividades;' -U postgres 
+
 script: 
   - adonis migration:run
   - adonis test

@@ -4,7 +4,17 @@ node_js:
 
 cache: npm
 
-script: adonis test
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'CREATE DATABASE listactividades;' -U postgres
+  - psql -c "CREATE USER foo WITH PASSWORD 'bar';" -U postgres
+
+script: 
+  -npm i -g @adonisjs/cli
+  -npm install
+  -adonis test
 
 provider: heroku
 api_key:

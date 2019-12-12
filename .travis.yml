@@ -2,7 +2,11 @@ language: node_js
 node_js:
  - 10.16.3
 
-cache: npm
+sudo: false
+
+cache:
+  directories:
+  - node_modules
 
 services:
   - postgresql
@@ -17,8 +21,6 @@ install:
 before_script:
   - psql -c 'CREATE DATABASE listactividades;' -U postgres
   - psql -c "CREATE USER root WITH PASSWORD 'password';" -U postgres
-env:
-  - NODE_ENV="test
 
 script: 
   - adonis test

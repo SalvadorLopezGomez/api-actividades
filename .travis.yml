@@ -14,8 +14,10 @@ before_install:
 install: 
   - npm ci
 
+env:
+  - NODE_ENV=test
+
 before_script:
-  - cp .env.testing .env
   - psql -c 'CREATE DATABASE listactividades;' -U postgres
   - adonis migration:run
 

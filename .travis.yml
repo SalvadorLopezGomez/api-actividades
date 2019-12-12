@@ -16,9 +16,11 @@ install:
 
 before_script:
   - psql -c 'CREATE DATABASE listactividades;' -U postgres
-  - psql -c "CREATE USER foo WITH PASSWORD 'bar';" -U postgres
+  - adonis migration:run
+  - cd .env.testing .env
 
-script: adonis test
+script: 
+  -adonis test
 
 provider: heroku
 api_key:

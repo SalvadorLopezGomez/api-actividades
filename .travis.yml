@@ -19,10 +19,11 @@ env:
 
 before_script:
   - psql -c 'CREATE DATABASE listactividades;' -U postgres
-  - adonis migration:run
+  - psql -c "CREATE USER root WITH PASSWORD 'password';" -U postgres
 
 script: 
-  -adonis test
+  - adonis migration:run
+  - adonis test
 
 provider: heroku
 api_key:
